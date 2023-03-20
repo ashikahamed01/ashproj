@@ -271,10 +271,10 @@ const save = () => {
     return;
   }
   var putReqStr = createPUTRequest(
-    "90938332|-31949271869526202|90952385",
+    "90932964|-31949275447194746|90947827",
     jsonStr,
-    "SCHOOL-DB",
-    "STUDENT-TABLE"
+    "S-DB",
+    "STUDENT"
   );
   // alert(putReqStr);
   jQuery.ajaxSetup({ async: false });
@@ -302,10 +302,10 @@ const getData = () => {
   // console.log(Fetched);
   if (Fetched) reset();
   var getReqStr = createGETRequest(
-    "90938332|-31949271869526202|90952385",
+    "90932964|-31949275447194746|90947827",
     jsonStr,
-    "SCHOOL-DB",
-    "STUDENT-TABLE"
+    "S-DB",
+    "STUDENT"
   );
   jQuery.ajaxSetup({ async: false });
   var resultObj = executeCommand(
@@ -430,8 +430,8 @@ const update = () => {
   var setReqStr = createSETRequest(
     "90932964|-31949275447194746|90947827",
     jsonStr,
-    "SCHOOL-DB",
-    "STUDENT-TABLE"
+    "S-DB",
+    "STUDENT"
   );
   // alert(setReqStr);
   jQuery.ajaxSetup({ async: false });
