@@ -274,8 +274,8 @@ const saveStudent = () => {
   var putReqStr = createPUTRequest(
     "90932964|-31949275447173497|90947826",
     jsonStr,
-    "SCHOOL-DB",
-    "STUDENT-TABLE"
+    "database",
+    "student"
   );
   // alert(putReqStr);
   jQuery.ajaxSetup({ async: false });
@@ -305,8 +305,8 @@ const getData = () => {
   var getReqStr = createGETRequest(
     "90932964|-31949275447173497|90947826",
     jsonStr,
-    "SCHOOL-DB",
-    "STUDENT-TABLE"
+    "database",
+    "student"
   );
   jQuery.ajaxSetup({ async: false });
   var resultObj = executeCommand(
@@ -431,8 +431,8 @@ const updateStudent = () => {
   var setReqStr = createSETRequest(
     "90932964|-31949275447173497|90947826",
     jsonStr,
-    "SCHOOL-DB",
-    "STUDENT-TABLE"
+    "database",
+    "stdent"
   );
   // alert(setReqStr);
   jQuery.ajaxSetup({ async: false });
@@ -450,4 +450,3 @@ const updateStudent = () => {
     </div>
   </body>
 </html>
-
