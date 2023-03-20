@@ -6,17 +6,18 @@ and open the template in the editor.
 -->
 <html lang="en">
   <head>
-    <title>Student Enrollment Form</title>
+    <title>Student Enrollment Page</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
   </head>
   <body onload="loaded()">
-      
     <div class="container">
       <h1 id="heading">Student Enrollment Form</h1>
       <form id="studentForm" method="post">
@@ -32,17 +33,17 @@ and open the template in the editor.
             placeholder="Enter Roll-No"
             onfocusout="getData()"
             required
-          >
+          />
         </div>
         <div class="form-group">
-          <label for="fullName">Full-name:</label>
+          <label for="studentName">Full-name:</label>
           <input
             type="text"
             class="form-control"
             id="fullname"
             placeholder="Enter Student Name(Full-name)"
-            name="fullName"
-          >
+            name="studentName"
+          />
         </div>
         <div class="form-group">
             <label for="class">Class:</label>
@@ -52,7 +53,7 @@ and open the template in the editor.
               id="class"
               placeholder="Enter Class"
               name="class"
-            >
+            />
           </div>
         <div class="form-group">
           <label for="birthdate">Birth-Date:</label>
@@ -62,7 +63,7 @@ and open the template in the editor.
             id="birthdate"
             placeholder=""
             name="birthdate"
-          >
+          />
         </div>
         <div class="form-group">
             <label for="class">Address:</label>
@@ -72,7 +73,7 @@ and open the template in the editor.
               id="address"
               placeholder="Enter Address"
               name="address"
-            >
+            />
           </div>
           <div class="form-group">
             <label for="enrolldate">Enrollment-Date:</label>
@@ -82,7 +83,7 @@ and open the template in the editor.
               id="enrollment"
               placeholder=""
               name="enrollment"
-            >
+            />
           </div>
           <div class="buttons">
         <input
@@ -90,26 +91,26 @@ and open the template in the editor.
           class="btn btn-primary"
           id="save"
           value="Save"
-          onclick="save();"
-        >
+          onclick="saveStudent();"
+        />
         <input
           type="button"
           class="btn btn-primary"
           id="update"
           value="Update"
-          onclick="update();"
-        >
+          onclick="updateStudent();"
+        />
         <input
           type="button"
           class="btn btn-primary"
           id="reset"
           value="Reset"
           onclick="resetForm();"
-        >
+        />
       </div>
       </form>
-      <script 
-          
+      <script
+
           var Fetched;
 const loaded = () => {
   Fetched = false;
@@ -255,7 +256,7 @@ const resetForm = () => {
   $("#rollno").focus();
 };
 
-const reset = () => {
+const resetForm2 = () => {
   Fetched = false;
   $("#save").prop("disabled", false);
   $("#fullname").val("");
@@ -265,16 +266,16 @@ const reset = () => {
   $("#enrollment").val("");
 };
 
-const save = () => {
+const saveStudent = () => {
   var jsonStr = validateAndGetFormData();
   if (jsonStr === "") {
     return;
   }
   var putReqStr = createPUTRequest(
-    "90932964|-31949275447194746|90947827",
+    "90932964|-31949275447173497|90947826",
     jsonStr,
-    "S-DB",
-    "STUDENT"
+    "SCHOOL-DB",
+    "STUDENT-TABLE"
   );
   // alert(putReqStr);
   jQuery.ajaxSetup({ async: false });
@@ -300,12 +301,12 @@ const getData = () => {
   $("#class").prop("disabled", false);
   $("#fullname").prop("disabled", false);
   // console.log(Fetched);
-  if (Fetched) reset();
+  if (Fetched) resetForm2();
   var getReqStr = createGETRequest(
-    "90932964|-31949275447194746|90947827",
+    "90932964|-31949275447173497|90947826",
     jsonStr,
-    "S-DB",
-    "STUDENT"
+    "SCHOOL-DB",
+    "STUDENT-TABLE"
   );
   jQuery.ajaxSetup({ async: false });
   var resultObj = executeCommand(
@@ -422,16 +423,16 @@ const validateAndUpdateFormData = () => {
   return JSON.stringify(jsonStrObj);
 };
 
-const update = () => {
+const updateStudent = () => {
   var jsonStr = validateAndUpdateFormData();
   if (jsonStr === "") {
     return;
   }
   var setReqStr = createSETRequest(
-    "90932964|-31949275447194746|90947827",
+    "90932964|-31949275447173497|90947826",
     jsonStr,
-    "S-DB",
-    "STUDENT"
+    "SCHOOL-DB",
+    "STUDENT-TABLE"
   );
   // alert(setReqStr);
   jQuery.ajaxSetup({ async: false });
@@ -444,10 +445,9 @@ const update = () => {
   jQuery.ajaxSetup({ async: true });
   resetForm();
 };
-
-
- </script>
- </div>
- </body>
+          
+          </script>
+    </div>
+  </body>
 </html>
 
